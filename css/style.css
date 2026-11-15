@@ -1,0 +1,937 @@
+/* ==========================================================================
+   CHÂTEAU BELLANDA — EXPÉRIENCE IMMERSIVE & GASTRONOMIQUE
+   Direction Artistique : Clair-Obscur, Or Ciselé, Terre Cuite & Bordeaux Rituel
+   Typographies : Cinzel, Cormorant Garamond, Courier Prime
+   Approche : Mobile-First Responsive | Conforme W3C CSS3 Validator & RGAA
+   ========================================================================== */
+
+:root {
+  --bg-deep: #181412;
+  --bg-primary: #211A18;
+  --bg-panel: #28221F;
+  --bg-card: #241E1C;
+  --bordeaux-rituel: #602827;
+  --rose-menu: #C86D68;
+  --rose-menu-dark: #A95550;
+  --terre-cuite: #8A7C70;
+  --pierre-grise: #B4B1AD;
+  --bougie-chaude: #CFCDBF;
+  --or-champagne: #DFD3B9;
+  --or-cisele: #C5A880;
+  --border-subtle: #3D3530;
+  --border-gold: #6E5D4F;
+  --font-title: 'Cinzel', Georgia, serif;
+  --font-serif: 'Cormorant Garamond', Georgia, serif;
+  --font-mono: 'Courier Prime', 'Courier New', monospace;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg-primary);
+  color: var(--pierre-grise);
+  font-family: var(--font-mono);
+  line-height: 1.65;
+  overflow-x: hidden;
+}
+
+/* Lien d'évitement accessibilité RGAA */
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 1rem;
+  background-color: var(--or-champagne);
+  color: var(--bg-deep);
+  padding: 0.75rem 1.25rem;
+  font-family: var(--font-mono);
+  font-weight: 700;
+  text-decoration: none;
+  z-index: 9999;
+  border-radius: 2px;
+}
+
+.skip-link:focus {
+  top: 1rem;
+  outline: 2px solid var(--rose-menu);
+}
+
+/* Accessibilité Focus Clavier */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+summary:focus-visible {
+  outline: 2px solid var(--or-champagne);
+  outline-offset: 3px;
+}
+
+/* Typographie Globale */
+h1, h2, h3, h4, .font-cinzel {
+  font-family: var(--font-title);
+  color: var(--bougie-chaude);
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  margin-top: 0;
+}
+
+.font-cormorant {
+  font-family: var(--font-serif);
+}
+
+.font-courier {
+  font-family: var(--font-mono);
+}
+
+.kicker {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  color: var(--rose-menu);
+  margin-bottom: 0.75rem;
+}
+
+.section-divider {
+  width: 56px;
+  height: 1px;
+  background-color: var(--terre-cuite);
+  border: 0;
+  margin: 1.5rem 0;
+}
+
+.section-divider-center {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ==========================================================================
+   HEADER & BARRE DE NAVIGATION (Mobile-First)
+   ========================================================================== */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 1030;
+  background-color: rgba(24, 20, 18, 0.96);
+  border-bottom: 1px solid var(--border-subtle);
+  padding: 0.85rem 0;
+}
+
+.brand-logo {
+  text-decoration: none;
+  display: inline-block;
+}
+
+.brand-title {
+  display: block;
+  font-family: var(--font-title);
+  font-size: 1.15rem;
+  color: var(--bougie-chaude);
+  letter-spacing: 0.14em;
+  line-height: 1.2;
+}
+
+.brand-subtitle {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  color: var(--terre-cuite);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  margin-top: 0.15rem;
+}
+
+.navbar-toggler-custom {
+  border: 1px solid var(--terre-cuite);
+  background: transparent;
+  color: var(--bougie-chaude);
+  padding: 0.45rem 0.75rem;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border-radius: 2px;
+}
+
+.nav-link-bellanda {
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  color: var(--pierre-grise);
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  padding: 0.6rem 0.9rem;
+  display: block;
+  transition: color 0.25s ease;
+}
+
+.nav-link-bellanda:hover,
+.nav-link-bellanda.active {
+  color: var(--or-champagne);
+}
+
+.nav-link-bellanda.active {
+  border-bottom: 1px solid var(--rose-menu);
+}
+
+.btn-reserver-header {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--bougie-chaude);
+  background-color: transparent;
+  border: 1px solid var(--terre-cuite);
+  padding: 0.55rem 1.2rem;
+  text-decoration: none;
+  transition: all 0.25s ease;
+}
+
+.btn-reserver-header:hover {
+  background-color: var(--bordeaux-rituel);
+  border-color: var(--rose-menu);
+  color: #ffffff;
+}
+
+/* ==========================================================================
+   MAQUETTE 1 : HERO & CARTE "THE MENU" ROSE POUDRÉ FESTONNÉE
+   ========================================================================== */
+.hero-frame-wrapper {
+  background-color: var(--bg-deep);
+  padding: 1rem 0 2rem 0;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.hero-main-box {
+  background-color: var(--bg-panel);
+  border: 1px solid var(--border-subtle);
+  overflow: hidden;
+}
+
+.hero-visual-stage {
+  position: relative;
+  min-height: 460px;
+  background-color: #14100E;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2.5rem 1.25rem;
+  overflow: hidden;
+}
+
+.hero-bg-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 22%;
+  opacity: 0.48;
+  filter: contrast(1.08) brightness(0.82);
+}
+
+.hero-overlay-gradient {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at center, rgba(24, 20, 18, 0.25) 0%, rgba(24, 20, 18, 0.82) 100%);
+}
+
+.hero-center-content {
+  position: relative;
+  z-index: 3;
+  max-width: 540px;
+  text-align: center;
+  padding: 1.25rem;
+}
+
+.hero-question-title {
+  font-family: var(--font-mono);
+  font-size: 1.2rem;
+  line-height: 1.55;
+  color: #F4EFE6;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.85);
+  margin-bottom: 1.25rem;
+}
+
+.hero-floating-vignettes {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  position: relative;
+  z-index: 3;
+}
+
+.vignette-card {
+  width: 96px;
+  height: 120px;
+  border: 2px solid rgba(255, 255, 255, 0.85);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.75);
+  overflow: hidden;
+  background-color: var(--bg-deep);
+}
+
+.vignette-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Colonne Droite Maquette 1 : Carte "The Menu" rose poudré à bordure festonnée */
+.hero-sidebar-panel {
+  background-color: #2A2522;
+  padding: 2.25rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100%;
+}
+
+.pink-menu-card {
+  background-color: var(--rose-menu);
+  color: #2B1817;
+  border-radius: 14px;
+  padding: 0.65rem;
+  max-width: 310px;
+  margin: 0 auto 2rem auto;
+  width: 100%;
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.45);
+  position: relative;
+}
+
+/* Bordure intérieure festonnée fidèle à la maquette 1 */
+.pink-menu-inner {
+  border: 2px dashed rgba(248, 232, 228, 0.78);
+  border-radius: 10px;
+  padding: 1.6rem 1.15rem;
+  text-align: center;
+}
+
+.pink-menu-kicker {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: #4A2422;
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+.pink-menu-heading {
+  font-family: var(--font-mono);
+  font-size: 2rem;
+  color: #2B1817;
+  margin-bottom: 1.25rem;
+  font-weight: 400;
+}
+
+.pink-menu-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.pink-menu-list li {
+  margin-bottom: 0.95rem;
+}
+
+.pink-menu-list li:last-child {
+  margin-bottom: 0;
+}
+
+.pink-menu-step {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #5A2B29;
+}
+
+.pink-menu-desc {
+  display: block;
+  font-family: var(--font-serif);
+  font-size: 1.05rem;
+  color: #231211;
+  font-weight: 600;
+}
+
+.hero-quick-links {
+  text-align: right;
+  padding-right: 0.5rem;
+}
+
+.hero-quick-links a {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 1.2rem;
+  color: #F4EFE6;
+  text-decoration: none;
+  margin-bottom: 0.35rem;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.hero-quick-links a:hover {
+  color: var(--rose-menu);
+  transform: translateX(-4px);
+}
+
+/* ==========================================================================
+   MAQUETTE 2 : SECTION "LE FESTIN DES INITIÉS"
+   ========================================================================== */
+.section-festin {
+  padding: 4rem 0;
+  background-color: var(--bg-primary);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.festin-title {
+  font-size: 1.85rem;
+  line-height: 1.25;
+  color: var(--or-champagne);
+  margin-bottom: 1rem;
+}
+
+.festin-quote {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1.18rem;
+  line-height: 1.65;
+  color: var(--pierre-grise);
+  margin-bottom: 2rem;
+}
+
+.stat-box {
+  background-color: var(--bg-panel);
+  border: 1px solid var(--border-subtle);
+  border-radius: 3px;
+  padding: 1.1rem 1rem;
+  height: 100%;
+  transition: border-color 0.25s ease;
+}
+
+.stat-box:hover {
+  border-color: var(--terre-cuite);
+}
+
+.stat-number {
+  display: block;
+  font-family: var(--font-serif);
+  font-size: 1.55rem;
+  font-weight: 700;
+  color: var(--or-champagne);
+  line-height: 1.1;
+  margin-bottom: 0.35rem;
+}
+
+.stat-label {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--pierre-grise);
+}
+
+.feature-visual-card {
+  height: 100%;
+}
+
+.feature-img-wrapper {
+  border: 1px solid var(--border-subtle);
+  overflow: hidden;
+  margin-bottom: 1.15rem;
+  background-color: var(--bg-deep);
+  aspect-ratio: 4 / 3;
+}
+
+.feature-img-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.45s ease;
+}
+
+.feature-visual-card:hover .feature-img-wrapper img {
+  transform: scale(1.04);
+}
+
+.feature-card-title {
+  font-family: var(--font-title);
+  font-size: 1rem;
+  color: var(--or-champagne);
+  margin-bottom: 0.6rem;
+}
+
+.feature-card-text {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--terre-cuite);
+  line-height: 1.65;
+  margin-bottom: 0;
+}
+
+/* ==========================================================================
+   BULLE DE PRÉSENTATION DE L'ARTISTE FRANÇOIS ALEXANDRE & CAFÉ DE L'ARTISTE
+   ========================================================================== */
+.artist-bubble-section {
+  padding: 4rem 0;
+  background-color: var(--bg-deep);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.artist-bubble-card {
+  background: linear-gradient(145deg, #261F1C 0%, #1C1614 100%);
+  border: 1px solid var(--border-gold);
+  border-radius: 12px;
+  padding: 2rem 1.5rem;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.55);
+}
+
+.artist-avatar-ring {
+  width: 155px;
+  height: 155px;
+  border-radius: 50%;
+  padding: 5px;
+  background: linear-gradient(135deg, var(--or-cisele), var(--rose-menu));
+  margin: 0 auto 1.25rem auto;
+}
+
+.artist-avatar-ring img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  display: block;
+}
+
+.insta-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: rgba(96, 40, 39, 0.45);
+  border: 1px solid var(--rose-menu);
+  color: var(--bougie-chaude);
+  padding: 0.35rem 0.9rem;
+  border-radius: 50px;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  text-decoration: none;
+  margin-bottom: 0.85rem;
+  transition: background-color 0.25s ease;
+}
+
+.insta-badge:hover {
+  background-color: var(--bordeaux-rituel);
+  color: #ffffff;
+}
+
+.insta-stats {
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  color: var(--terre-cuite);
+  letter-spacing: 0.06em;
+  margin-bottom: 1rem;
+}
+
+.artist-quote-bubble {
+  background-color: rgba(33, 26, 24, 0.85);
+  border-left: 3px solid var(--rose-menu);
+  padding: 1rem 1.25rem;
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1.2rem;
+  color: var(--or-champagne);
+  margin: 1rem 0;
+}
+
+/* Cartel & Galerie des Œuvres */
+.artwork-card {
+  background-color: var(--bg-panel);
+  border: 1px solid var(--border-subtle);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.artwork-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--or-cisele);
+}
+
+.artwork-img-container {
+  position: relative;
+  overflow: hidden;
+  background-color: #120F0E;
+  aspect-ratio: 4 / 5;
+}
+
+.artwork-img-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.artwork-card:hover .artwork-img-container img {
+  transform: scale(1.03);
+}
+
+.artwork-tag {
+  position: absolute;
+  top: 0.75rem;
+  left: 0.75rem;
+  background-color: rgba(24, 20, 18, 0.88);
+  border: 1px solid var(--border-gold);
+  color: var(--or-champagne);
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  padding: 0.25rem 0.65rem;
+}
+
+.artwork-cartel {
+  padding: 1.35rem;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.cartel-title {
+  font-family: var(--font-title);
+  font-size: 1.05rem;
+  color: var(--or-champagne);
+  margin-bottom: 0.35rem;
+}
+
+.cartel-meta {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--rose-menu);
+  margin-bottom: 0.75rem;
+}
+
+.cartel-desc {
+  font-family: var(--font-serif);
+  font-size: 1.02rem;
+  color: var(--pierre-grise);
+  margin-bottom: 1rem;
+}
+
+/* Café de l'Artiste */
+.cafe-artiste-box {
+  background-color: #271F1C;
+  border: 1px solid var(--border-gold);
+  padding: 2rem 1.5rem;
+  position: relative;
+}
+
+/* ==========================================================================
+   MAQUETTE 3 : LE PROTOCOLE DU CHÂTEAU (3 CARTES NUMÉROTÉES)
+   ========================================================================== */
+.protocol-card {
+  background-color: var(--bg-panel);
+  border: 1px solid var(--border-subtle);
+  padding: 2rem 1.65rem;
+  height: 100%;
+  transition: border-color 0.25s ease;
+}
+
+.protocol-card:hover {
+  border-color: var(--rose-menu);
+}
+
+.protocol-step {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--rose-menu);
+  margin-bottom: 0.85rem;
+}
+
+.protocol-heading {
+  font-family: var(--font-title);
+  font-size: 1.15rem;
+  color: var(--or-champagne);
+  margin-bottom: 1rem;
+}
+
+.protocol-lead {
+  font-family: var(--font-mono);
+  font-size: 0.84rem;
+  color: var(--bougie-chaude);
+  margin-bottom: 1rem;
+}
+
+.protocol-note {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1rem;
+  color: var(--terre-cuite);
+  margin-bottom: 0;
+}
+
+/* ==========================================================================
+   MAQUETTE 4 : FORMULAIRES DE RÉSERVATION & DÉTAIL DU PLAT DU PEINTRE
+   ========================================================================== */
+.salon-form-container,
+.detail-boxed-card {
+  background-color: var(--bg-panel);
+  border: 1px solid var(--border-subtle);
+  padding: 2rem 1.5rem;
+  border-radius: 3px;
+}
+
+.contact-diamond-list {
+  list-style: none;
+  padding: 0;
+  margin: 1.5rem 0 0 0;
+}
+
+.contact-diamond-list li {
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  color: var(--pierre-grise);
+  margin-bottom: 0.65rem;
+}
+
+.contact-diamond-list strong {
+  color: var(--bougie-chaude);
+}
+
+.form-label-bellanda {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--pierre-grise);
+  margin-bottom: 0.45rem;
+}
+
+.form-control-bellanda,
+.form-select-bellanda {
+  width: 100%;
+  background-color: #171311;
+  border: 1px solid var(--border-subtle);
+  color: var(--bougie-chaude);
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  padding: 0.75rem 0.95rem;
+  border-radius: 2px;
+  margin-bottom: 1.2rem;
+}
+
+.form-control-bellanda::placeholder {
+  color: #6E655F;
+}
+
+.form-control-bellanda:focus,
+.form-select-bellanda:focus {
+  border-color: var(--or-champagne);
+  background-color: #1D1816;
+}
+
+.btn-champagne {
+  display: inline-block;
+  width: 100%;
+  background-color: var(--or-champagne);
+  color: #1C1614;
+  font-family: var(--font-title);
+  font-weight: 600;
+  font-size: 0.8rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  border: 1px solid var(--or-champagne);
+  padding: 0.9rem 1.5rem;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.btn-champagne:hover {
+  background-color: var(--bordeaux-rituel);
+  border-color: var(--rose-menu);
+  color: #ffffff;
+}
+
+.btn-bordeaux {
+  display: inline-block;
+  background-color: var(--bordeaux-rituel);
+  color: var(--bougie-chaude);
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  border: 1px solid var(--rose-menu);
+  padding: 0.75rem 1.4rem;
+  text-decoration: none;
+  transition: all 0.25s ease;
+}
+
+.btn-bordeaux:hover {
+  background-color: var(--rose-menu);
+  color: #181412;
+}
+
+.sommelier-box {
+  background-color: #1A1513;
+  border: 1px solid var(--border-subtle);
+  padding: 1.1rem;
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  color: var(--pierre-grise);
+  margin-top: 1.25rem;
+}
+
+.sommelier-box strong {
+  color: var(--bougie-chaude);
+}
+
+/* Modules Horizontaux Page Menu (Wireframe + Maquette) */
+.menu-course-row {
+  background-color: var(--bg-panel);
+  border: 1px solid var(--border-subtle);
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  transition: border-color 0.25s ease;
+}
+
+.menu-course-row:hover {
+  border-color: var(--or-cisele);
+}
+
+.accord-details summary {
+  cursor: pointer;
+  display: inline-block;
+  background-color: var(--bordeaux-rituel);
+  color: var(--bougie-chaude);
+  border: 1px solid var(--rose-menu);
+  padding: 0.45rem 0.95rem;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  list-style: none;
+}
+
+.accord-details summary::-webkit-details-marker {
+  display: none;
+}
+
+.accord-content {
+  margin-top: 0.85rem;
+  padding: 0.9rem;
+  background-color: #1A1513;
+  border-left: 2px solid var(--or-champagne);
+  font-size: 0.8rem;
+}
+
+/* Sticky Mobile CTA (Recommandation Dossier UX Persona Julien) */
+.mobile-sticky-cta {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(24, 20, 18, 0.96);
+  border-top: 1px solid var(--border-gold);
+  padding: 0.65rem 1rem;
+  z-index: 1020;
+  display: block;
+}
+
+/* Footer */
+.site-footer {
+  background-color: #14100E;
+  border-top: 1px solid var(--border-subtle);
+  padding: 3rem 0 5rem 0;
+  color: var(--terre-cuite);
+  font-size: 0.8rem;
+}
+
+.footer-signature {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 0.95rem;
+  color: var(--terre-cuite);
+  text-align: center;
+}
+
+/* ==========================================================================
+   MEDIA QUERIES — ADAPTATION TABLETTE & DESKTOP (Approche Mobile-First)
+   ========================================================================== */
+@media (min-width: 768px) {
+  .festin-title {
+    font-size: 2.35rem;
+  }
+
+  .hero-question-title {
+    font-size: 1.45rem;
+  }
+
+  .salon-form-container,
+  .detail-boxed-card {
+    padding: 2.75rem 2.25rem;
+  }
+}
+
+@media (min-width: 992px) {
+  .brand-title {
+    font-size: 1.35rem;
+  }
+
+  .hero-visual-stage {
+    min-height: 560px;
+  }
+
+  /* Sur Desktop : Positionnement exact des 2 vignettes à droite de l'image Hero comme sur la Maquette 1 */
+  .hero-floating-vignettes {
+    position: absolute;
+    right: 1.5rem;
+    top: 0;
+    bottom: 0;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 2rem 0;
+    margin-top: 0;
+  }
+
+  .vignette-card {
+    width: 112px;
+    height: 138px;
+  }
+
+  .mobile-sticky-cta {
+    display: none;
+  }
+
+  .site-footer {
+    padding-bottom: 3rem;
+  }
+}
